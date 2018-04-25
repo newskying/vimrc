@@ -66,7 +66,7 @@ endif
 let g:ctrlp_map = '<Leader>sc'
 let g:ctrlp_cmd = 'CtrlP'
 "search file of MRU
-nmap <Leader>sf :CtrlPMRUFiles<CR>
+nmap <Leader>sr :CtrlPMRUFiles<CR>
 "search file of buffer
 nmap <Leader>sb :CtrlPBuffer<CR>
 "ignore patten
