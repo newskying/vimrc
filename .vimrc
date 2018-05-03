@@ -7,8 +7,8 @@ set nocompatible              " be iMproved, required
 source /proj/tsp/projects/sapc_CBA/design/environment/vim/runtime/.vimrc
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = "\\"
-let g:mapleader = "\\"
+let mapleader = ","
+let g:mapleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -63,7 +63,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 "search file of current dir
-let g:ctrlp_map = '<Leader>sc'
+"let g:ctrlp_map = '<Leader>sc'  "use fzf for alternative
 let g:ctrlp_cmd = 'CtrlP'
 "search file of MRU
 nmap <Leader>sr :CtrlPMRUFiles<CR>
@@ -88,6 +88,11 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 0
 "prompt
 let g:ctrlp_line_prefix = '->'
+
+"""""" fzf """"""
+nmap <Leader>sc :FZF<CR>
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => filetype settings
