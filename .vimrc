@@ -25,8 +25,8 @@ set makeprg=epb
 "set background=dark
 "colorscheme molokai
 """"" light scheme """"""
-"set background=light
-"colorscheme peaksea
+set background=light
+colorscheme peaksea
 colorscheme morning
 
 if &diff
@@ -88,6 +88,12 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 0
 "prompt
 let g:ctrlp_line_prefix = '->'
+""""""""" ctrlp-funky"""""""
+"search file of function
+nmap <Leader>sf :CtrlPFunky<CR>
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 """""" fzf """"""
 nmap <Leader>sc :FZF<CR>
