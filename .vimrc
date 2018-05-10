@@ -108,4 +108,11 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/ftplugin/yaml.vim
 """"""""""" json """"""""""""""
 let g:vim_json_syntax_conceal = 0
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => coding sessings:
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""" YCM """"""
+"let g:ycm_server_python_interpreter='~/local/python/bin/python' "can't find my python???
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
 
