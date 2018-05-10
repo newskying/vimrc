@@ -55,3 +55,9 @@
 [submodule "pack/russell-plugin/start/YouCompleteMe"]
 	path = pack/russell-plugin/start/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = 0~https://github.com/tpope/vim-repeat.git
