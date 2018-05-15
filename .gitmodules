@@ -61,3 +61,6 @@
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = 0~https://github.com/tpope/vim-repeat.git
+[submodule "bundle/LeaderF"]
+	path = bundle/LeaderF
+	url = https://github.com/Yggdroot/LeaderF.git
