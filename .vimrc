@@ -60,7 +60,7 @@ set so=4
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*/.git/*,*.swp
 
 "Always show current position
 set ruler
@@ -72,7 +72,7 @@ set cmdheight=2
 set hid
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent
+set backspace=eol,start,indent  "TODO
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
@@ -221,6 +221,8 @@ nnoremap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>e :e %:p:h<cr>:pwd<cr>
+cabbr <expr> %% expand('%:p:h')
 
 " Specify the behavior when switching between buffers
 "try
@@ -365,7 +367,7 @@ call pathogen#infect()
 Helptags
 
 
-set autochdir   " not affect ctrlp and fzf for now
+"set autochdir   " not affect ctrlp and fzf for now "using <leader>e instead
 set relativenumber
 
 
@@ -405,12 +407,14 @@ let g:lightline = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin search settings: ack + ag + ctrlp | fzf + leaderF + ctrlsf
+" => Plugin search settings: ack + ctrlp + fzf + rg|ag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""" ack """"""""""
 map <Leader>ss :Ack!<Space> 
-"search by ag
-if executable('ag')
+"search by rg or ag
+if executable('rg')
+   let g:ackprg = 'rg --vimgrep'  "report every match on the line
+elseif executable('ag')
    "let g:ackprg = 'ag --nogroup --nocolor --column'
    let g:ackprg = 'ag --vimgrep'  "report every match on the line
 endif
@@ -426,7 +430,11 @@ let g:ack_use_cword_for_empty_search = 1
 "let g:ack_use_dispatch = 1
 
 """""""""" ctrlp """"""""""
-if executable('ag')
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+elseif executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
