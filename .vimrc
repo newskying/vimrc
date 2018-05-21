@@ -506,9 +506,9 @@ nnoremap <F9> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set autoindent
-set softtabstop = 3
-set tabstop     = 3
-set shiftwidth  = 3
+set softtabstop=3
+set tabstop=3
+set shiftwidth=3
 set expandtab
 set tags=$AD_SW_DIR/tags
 nnoremap <F8> :!ctags -f  $AD_SW_DIR/tags -R --c++-kinds=+p --fields=+iaS --extra=+q $AD_SW_DIR/ft/bat/lib2 $AD_SW_DIR/ft/bat/tss_04_SACC40 $AD_SW_DIR/Epc_SA/ $AD_SW_CBA_DIR/Code/ $AD_SW_DIR/st/bat/bat_LoadTraffic/trafficCases/ $AD_SW_DIR/st/lib/<CR>
