@@ -47,7 +47,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nnoremap <leader>w :w!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -244,14 +244,14 @@ set viminfo^=%
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
+nnoremap <M-j> mz:m+<cr>`z
+nnoremap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
+  nnoremap <D-j> <M-j>
+  nnoremap <D-k> <M-k>
   vmap <D-j> <M-j>
   vmap <D-k> <M-k>
 endif
@@ -443,9 +443,9 @@ endif
 "let g:ctrlp_map = '<Leader>sc'  "use fzf for alternative
 let g:ctrlp_cmd = 'CtrlP'
 "search file of MRU
-nmap <Leader>sr :CtrlPMRUFiles<CR>
+nnoremap <Leader>sr :CtrlPMRUFiles<CR>
 "search file of buffer
-nmap <Leader>sb :CtrlPBuffer<CR>
+nnoremap <Leader>sb :CtrlPBuffer<CR>
 "ignore patten
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
@@ -467,13 +467,12 @@ let g:ctrlp_regexp = 0
 let g:ctrlp_line_prefix = '->'
 """"""""""" ctrlp-funky """"""""""
 "search file of function
-nmap <Leader>sf :CtrlPFunky<CR>
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 """"""""""" fzf """""""""""
-nmap <Leader>sc :FZF<CR>
+nnoremap <Leader>sc :FZF<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -499,7 +498,6 @@ nnoremap <Leader>gt :YcmCompleter GoToImprecise<CR>
 nnoremap <Leader>gf :YcmCompleter GoToInclude<CR>
 nnoremap <Leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>gi :YcmCompleter GoToDefinition<CR>
-nnoremap <F3> :!cp $GS/software/build/development-with-optimizations/compile_commands.json $GS/software/<CR>
 nnoremap <F9> :TagbarToggle<CR>
 
 
@@ -508,9 +506,9 @@ nnoremap <F9> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set autoindent
-set softtabstop=3
-set tabstop=3
-set shiftwidth=3
+set softtabstop = 3
+set tabstop     = 3
+set shiftwidth  = 3
 set expandtab
 set tags=$AD_SW_DIR/tags
 nnoremap <F8> :!ctags -f  $AD_SW_DIR/tags -R --c++-kinds=+p --fields=+iaS --extra=+q $AD_SW_DIR/ft/bat/lib2 $AD_SW_DIR/ft/bat/tss_04_SACC40 $AD_SW_DIR/Epc_SA/ $AD_SW_CBA_DIR/Code/ $AD_SW_DIR/st/bat/bat_LoadTraffic/trafficCases/ $AD_SW_DIR/st/lib/<CR>
@@ -525,7 +523,14 @@ au! Syntax ttcn source $ENVIRONMENT/vim/runtime/syntax/ttcn.vim
 au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source $ENVIRONMENT/vim/runtime/syntax/thrift.vim
 set makeprg=epb
+nnoremap <F3> :!cp $GS/software/build/development-with-optimizations/compile_commands.json $GS/software/<CR>
 
+" support c++11 bracket initialization
 let c_no_curly_error = 1
 
+"""""""""" IndentLines """"""""""
+map <leader>il :IndentLinesToggle<CR>
+"""""""""" easy-align """"""""""
+xmap <leader>ga <Plug>(EasyAlign)
+nmap <leader>ga <Plug>(EasyAlign)
 
