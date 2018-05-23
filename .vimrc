@@ -72,8 +72,8 @@ set cmdheight=2
 set hid
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent  "TODO
-set whichwrap+=<,>,h,l
+set backspace=eol,start,indent
+set whichwrap+=<,>
 
 " Ignore case when searching
 set ignorecase
@@ -493,11 +493,14 @@ let g:vim_json_syntax_conceal = 0
 "let g:ycm_server_python_interpreter='~/local/python/bin/python' "can't find my python???
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-nnoremap <Leader>gt :YcmCompleter GoToImprecise<CR>
-nnoremap <Leader>gf :YcmCompleter GoToInclude<CR>
-nnoremap <Leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gt :YcmCompleter GoTo<CR>
+nnoremap <Leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <Leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gy :YcmCompleter GetType<CR>
+"""""""""" Tagbar """"""""""
 nnoremap <F9> :TagbarToggle<CR>
 
 
