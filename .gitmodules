@@ -13,18 +13,12 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim-json"]
-	path = vim-json
-	url = https://github.com/elzr/vim-json.git
-[submodule "vim-yaml"]
-	path = vim-yaml
+[submodule "bundle/vim-yaml"]
+	path = bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
-[submodule "bundle/vim-yaml"]
-	path = bundle/vim-yaml
-	url = https://github.com/stephpy/vim-yaml.git
 [submodule "bundle/colorschemes"]
 	path = bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
@@ -49,9 +43,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/YouCompleteMe"]
-	path = pack/russell-plugin/start/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "pack/russell-plugin/start/YouCompleteMe"]
 	path = pack/russell-plugin/start/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
@@ -64,8 +55,8 @@
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "bundle/indentLine"]
-	path = bundle/indentLine
+[submodule "pack/russell-plugin/opt/indentLine"]
+	path = pack/russell-plugin/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "bundle/vim-signature"]
 	path = bundle/vim-signature
