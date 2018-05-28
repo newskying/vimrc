@@ -491,7 +491,7 @@ let g:vim_json_syntax_conceal = 0
 
 """""""""" YCM """"""""""
 "let g:ycm_server_python_interpreter='~/local/python/bin/python' "can't find my python???
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/dotfiles/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -526,7 +526,7 @@ au! Syntax ttcn source $ENVIRONMENT/vim/runtime/syntax/ttcn.vim
 au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source $ENVIRONMENT/vim/runtime/syntax/thrift.vim
 set makeprg=epb
-nnoremap <F3> :!cp $GS/software/build/development-with-optimizations/compile_commands.json $GS/software/<CR>
+nnoremap <F3> :!cp $GS/software/build/development-with-optimizations/compile_commands.json $GS/software/build/<CR>
 
 " support c++11 bracket initialization
 let c_no_curly_error = 1
