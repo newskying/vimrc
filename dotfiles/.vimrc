@@ -484,7 +484,7 @@ nnoremap <Leader>fhs :History/<CR>
 nnoremap <Leader>fm :Marks<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>fc :BCommits<CR>
-nnoremap <Leader>fg :GFiles?<CR>
+nnoremap <Leader>fg :GFiles<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
