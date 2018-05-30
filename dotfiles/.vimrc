@@ -53,8 +53,8 @@ nnoremap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=4
+" scrolloff: Set 2 lines to the cursor - when moving vertically using j/k
+"set so=2
 
 " Turn on the WiLd menu
 set wildmenu
@@ -103,6 +103,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
+set nostartofline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors Fonts and Encodings
@@ -364,11 +365,12 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
-Helptags
+call pathogen#helptags()
+"Helptags "shadowed by fzf.vim
 
 
 "set autochdir   " not affect ctrlp and fzf for now "using <leader>e instead
-set relativenumber
+"set relativenumber "no use after easymotion.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -471,9 +473,27 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-""""""""""" fzf """""""""""
-nnoremap <Leader>sc :FZF<CR>
+""""""""""" fzf and fzf.vim """""""""""
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fl :Lines<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fw :Windows<CR>
+nnoremap <Leader>fr :History<CR>
+nnoremap <Leader>fhc :History:<CR>
+nnoremap <Leader>fhs :History/<CR>
+nnoremap <Leader>fm :Marks<CR>
+nnoremap <Leader>ft :Tags<CR>
+nnoremap <Leader>fc :BCommits<CR>
+nnoremap <Leader>fg :GFiles?<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Filetype plugin settings
