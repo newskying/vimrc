@@ -432,6 +432,7 @@ let g:ack_use_cword_for_empty_search = 1
 "let g:ack_use_dispatch = 1
 
 """""""""" ctrlp """"""""""
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 if executable('rg')
   set grepprg=rg\ --color=never
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
