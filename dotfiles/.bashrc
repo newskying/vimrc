@@ -1,5 +1,5 @@
 #add local bin
-export PATH="$PATH:$HOME/local/bin"
+export PATH="$PATH:$HOME/local/vim/bin"
 
 #import fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -19,7 +19,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #import python
 [ -f ~/.python.bash ] && source ~/.python.bash
 
-alias vim=$HOME/local/bin/vim
+alias vim=$HOME/local/vim/bin/vim
+alias vimdiff=$HOME/local/vim/bin/vimdiff
+alias xxd=$HOME/local/vim/bin/xxd
 
 #import clang
 export PATH="$PATH:$HOME/local/llvm/clang+llvm-6.0.0-x86_64-linux-sles12.2/bin"

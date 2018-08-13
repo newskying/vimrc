@@ -153,9 +153,9 @@ set noswapfile
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+  "exe "normal mz"
+  "%s/\s\+$//ge
+  "exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -195,8 +195,9 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " => Windows tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+" don't like it! -- newsky
+"map j gj
+"map k gk
 
 " Smart way to move between windows
 nnoremap <C-j> <C-W>j
@@ -223,6 +224,7 @@ nnoremap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 nnoremap <leader>e :e %:p:h<cr>:pwd<cr>
+nnoremap <leader>se :sp %:p:h<cr>:pwd<cr>
 cabbr <expr> %% expand('%:p:h')
 
 " Specify the behavior when switching between buffers
@@ -369,7 +371,7 @@ call pathogen#helptags()
 "Helptags "shadowed by fzf.vim
 
 
-"set autochdir   " not affect ctrlp and fzf for now "using <leader>e instead
+"set autochdir   " not affect ctrlp and fzf for now "using <leader>e and <leader>se instead
 "set relativenumber "no use after easymotion.vim
 
 
@@ -530,9 +532,9 @@ nnoremap <F9> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set autoindent
-set softtabstop=3
-set tabstop=3
-set shiftwidth=3
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set tags=$AD_SW_DIR/tags
 nnoremap <F8> :!ctags -f  $AD_SW_DIR/tags -R --c++-kinds=+p --fields=+iaS --extra=+q $AD_SW_DIR/ft/bat/lib2 $AD_SW_DIR/ft/bat/tss_04_SACC40 $AD_SW_DIR/Epc_SA/ $AD_SW_CBA_DIR/Code/ $AD_SW_DIR/st/bat/bat_LoadTraffic/trafficCases/ $AD_SW_DIR/st/lib/<CR>
@@ -557,4 +559,13 @@ map <leader>il :IndentLinesToggle<CR>
 """""""""" easy-align """"""""""
 xmap <leader>ga <Plug>(EasyAlign)
 nmap <leader>ga <Plug>(EasyAlign)
+
+" Put these lines at the very end of your vimrc file.
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
 
