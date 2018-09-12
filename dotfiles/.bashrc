@@ -26,3 +26,11 @@ alias xxd=$HOME/local/vim/bin/xxd
 #import clang
 export PATH="$PATH:$HOME/local/llvm/clang+llvm-6.0.0-x86_64-linux-sles12.2/bin"
 
+#term setting
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+     export TERM='xterm-256color'
+else
+     export TERM='xterm-color'
+fi
+
+

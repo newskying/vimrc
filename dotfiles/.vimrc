@@ -119,13 +119,19 @@ if has("gui_running")
 endif
 
 set t_Co=256
+"set termguicolors
 """""" dark scheme """"""
 "set background=dark
 "colorscheme molokai
 """""" light scheme """"""
 set background=light
 "colorscheme peaksea
-colorscheme morning
+"colorscheme morning
+if !has('gui_running')
+  let g:solarized_termcolors=&t_Co
+  let g:solarized_termtrans=1
+endif
+colorscheme solarized
 
 if &diff
    set background=light
@@ -223,8 +229,10 @@ nnoremap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nnoremap <leader>e :e %:p:h<cr>:pwd<cr>
-nnoremap <leader>se :sp %:p:h<cr>:pwd<cr>
+"nnoremap <leader>e :e %:p:h<cr>:pwd<cr>
+"nnoremap <leader>se :sp %:p:h<cr>:pwd<cr>
+nnoremap <leader>e :Explore<cr>:pwd<cr>
+nnoremap <leader>se :Sexplore<cr>:pwd<cr>
 cabbr <expr> %% expand('%:p:h')
 
 " Specify the behavior when switching between buffers
@@ -391,10 +399,11 @@ let g:lightline = {
       \   'readonly': 'LightlineReadonly',
       \   'gitbranch': 'LightlineFugitive',
       \ },
-      \ 'separator': { 'left': "⮀", 'right': "⮂" },
-      \ 'subseparator': { 'left': "⮁", 'right': "⮃" }
+      \ 'separator': { 'left': "|", 'right': "|" },
+      \ 'subseparator': { 'left': "|", 'right': "|" }
       \ }
-
+      "\ 'separator': { 'left': "⮀", 'right': "⮂" },
+      "\ 'subseparator': { 'left': "⮁", 'right': "⮃" }
 	function! LightlineReadonly()
 		return &readonly ? "⭤" : ''
 	endfunction
@@ -482,8 +491,8 @@ nnoremap <Leader>fl :Lines<CR>
 nnoremap <Leader>fb :Buffers<CR>
 nnoremap <Leader>fw :Windows<CR>
 nnoremap <Leader>fr :History<CR>
-nnoremap <Leader>fhc :History:<CR>
-nnoremap <Leader>fhs :History/<CR>
+nnoremap <Leader>hc :History:<CR>
+nnoremap <Leader>hs :History/<CR>
 nnoremap <Leader>fm :Marks<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <Leader>fc :BCommits<CR>
