@@ -88,3 +88,6 @@
 [submodule "pack/tpope/start/vim-unimpaired"]
 	path = pack/tpope/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/asyncrun"]
+	path = bundle/asyncrun
+	url = https://github.com/skywind3000/asyncrun.vim.git
