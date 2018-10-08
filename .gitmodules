@@ -91,3 +91,6 @@
 [submodule "bundle/asyncrun"]
 	path = bundle/asyncrun
 	url = https://github.com/skywind3000/asyncrun.vim.git
+[submodule "bundle/xml"]
+	path = bundle/xml
+	url = https://github.com/othree/xml.vim.git
