@@ -57,8 +57,10 @@ flags = [
 #
 # Most projects will NOT need to set this to anything; you can just change the
 # 'flags' list of compilation flags.
-# compilation_database_folder = '/tmp/ezxinxi/esapc_miit_p3/software' #use env var
-compilation_database_folder = os.getenv("GS") + "/software/build"
+if (not os.getenv("GS") or ("" == os.getenv("GS"))):
+  compilation_database_folder = os.getenv("GS") + "/software/build"
+else:
+  compilation_database_folder = "/tmp/ezxinxi/esapc/software/build"
 
 if os.path.exists( compilation_database_folder ):
   database = ycm_core.CompilationDatabase( compilation_database_folder )

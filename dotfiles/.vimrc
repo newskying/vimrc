@@ -46,15 +46,14 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-nnoremap <leader>w :w!<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " scrolloff: Set 2 lines to the cursor - when moving vertically using j/k
 "set so=2
+
+set cursorline
 
 " Turn on the WiLd menu
 set wildmenu
@@ -522,8 +521,10 @@ let g:vim_json_syntax_conceal = 0
 """""""""" switch between header/source """"""""""
 
 """""""""" YCM """"""""""
+let $LD_LIBRARY_PATH .= ':/home/ezxinxi/local/python/lib' "YCM depend on libpython.so
 "let g:ycm_server_python_interpreter='~/local/python/bin/python' "can't find my python???
 let g:ycm_global_ycm_extra_conf='~/.vim/dotfiles/.ycm_extra_conf.py'
+let g:ycm_extra_conf_vim_data = [ '&filetype' ]
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -535,7 +536,33 @@ nnoremap <Leader>gy :YcmCompleter GetType<CR>
 """""""""" Tagbar """"""""""
 nnoremap <F9> :TagbarToggle<CR>
 
+"""""""""" vim-cpp-enhanced-highlight """"""""""
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+"let g:cpp_experimental_simple_template_highlight = 1 " really slow
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 
+"""""""""" asyncrun """"""""""
+let g:asyncrun_open = 6
+
+"""""""""" EasyMotion """"""""""
+" <Leader>f{char} to move to {char}
+"map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>1 <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+"nmap <Leader>2 <Plug>(easymotion-bd-f2)  "too slow
+
+" Move to line
+"map <Leader>L <Plug>(easymotion-bd-jk)
+"nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+"nnoremap  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-w)
+nmap <Leader>b <Plug>(easymotion-b)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Workspace Customs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
