@@ -103,3 +103,9 @@
 [submodule "pack/russell-plugin/start/gutentags_plus"]
 	path = pack/russell-plugin/start/gutentags_plus
 	url = https://github.com/skywind3000/gutentags_plus.git
+[submodule "bundle/quickfix-reflector.vim"]
+	path = bundle/quickfix-reflector.vim
+	url = https://github.com/stefandtw/quickfix-reflector.vim.git
+[submodule "bundle/vim-ripgrep"]
+	path = bundle/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep.git
