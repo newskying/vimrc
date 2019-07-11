@@ -97,3 +97,9 @@
 [submodule "bundle/vim-cpp-enhanced-highlight"]
 	path = bundle/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
+[submodule "pack/russell-plugin/start/vim-gutentags"]
+	path = pack/russell-plugin/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "pack/russell-plugin/start/gutentags_plus"]
+	path = pack/russell-plugin/start/gutentags_plus
+	url = https://github.com/skywind3000/gutentags_plus.git
